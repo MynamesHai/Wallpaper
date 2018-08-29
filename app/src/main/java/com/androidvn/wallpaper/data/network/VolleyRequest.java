@@ -58,9 +58,9 @@ public class VolleyRequest<T> extends Request<T> {
 
     @Override
     protected void deliverResponse(T response) {
-
-        BaseResponse object = Utils.parserObject(response.toString(), Response.class);
-        requestCallback.onSuccess(taskType, object);
+//        BaseResponse object = Utils.parserObject(response.toString(), BaseResponse.class);
+//        requestCallback.onSuccess(taskType, object); // optimize
+        requestCallback.onSuccessObject(taskType, response.toString());
     }
 
     @Override

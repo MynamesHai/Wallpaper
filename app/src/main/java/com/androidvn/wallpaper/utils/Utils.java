@@ -8,7 +8,7 @@ import java.lang.reflect.Type;
 
 public class Utils {
 
-    public static <T> BaseResponse parserObject(String json, Class<T> typeClass) {
+    public static <T> T parserObject(String json, Class<T> typeClass) {
         Gson gson = new Gson();
         return gson.fromJson(json, new ObjectOfJson<T>(typeClass));
     }

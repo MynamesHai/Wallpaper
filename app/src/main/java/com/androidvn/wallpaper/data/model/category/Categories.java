@@ -9,5 +9,5 @@ public class Categories {
     public long createdTime;
 
     @SerializedName("data")
-    public List<CategoryInfo> listCategoryInfo;
+    public List<CategoryInfo> listCategories;
 }

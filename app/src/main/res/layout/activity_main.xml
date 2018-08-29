@@ -6,8 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.MainActivity">
     <TextView
+        android:background="@color/colorAccent"
+        android:layout_gravity="center"
+        android:padding="30dp"
+        android:id="@+id/tv_test_api"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="API" />
 
 </FrameLayout>
