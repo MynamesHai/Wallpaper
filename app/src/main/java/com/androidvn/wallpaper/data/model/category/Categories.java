@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Categorys {
+public class Categories {
     @SerializedName("stime")
     public long createdTime;
 

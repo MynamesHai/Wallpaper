@@ -7,6 +7,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
+import com.androidvn.wallpaper.data.model.BaseResponse;
+import com.androidvn.wallpaper.utils.Utils;
 import com.google.gson.JsonSyntaxException;
 
 import org.json.JSONObject;
@@ -56,7 +58,9 @@ public class VolleyRequest<T> extends Request<T> {
 
     @Override
     protected void deliverResponse(T response) {
-        requestCallback.onSuccess(taskType, response.toString());
+
+        BaseResponse object = Utils.parserObject(response.toString(), Response.class);
+        requestCallback.onSuccess(taskType, object);
     }
 
     @Override
