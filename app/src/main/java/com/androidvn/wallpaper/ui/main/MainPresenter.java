@@ -1,4 +1,4 @@
-package com.androidvn.wallpaper.ui.home;
+package com.androidvn.wallpaper.ui.main;
 
 import android.content.Context;
 

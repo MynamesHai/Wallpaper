@@ -1,4 +1,4 @@
-package com.androidvn.wallpaper.ui.home;
+package com.androidvn.wallpaper.ui.main;
 
 import com.androidvn.wallpaper.data.model.category.CategoryInfo;
 import com.androidvn.wallpaper.ui.base.BaseMvpView;
