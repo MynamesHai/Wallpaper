@@ -1,11 +1,12 @@
 package com.androidvn.wallpaper.ui.favorites;
 
+import com.androidvn.wallpaper.R;
 import com.androidvn.wallpaper.ui.base.BaseFragment;
 
 public class FavoriteFragment extends BaseFragment {
     @Override
     public int getLayoutId() {
-        return 0;
+        return R.layout.fragment_favorite;
     }
 
     @Override

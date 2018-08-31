@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_item_home" android:title="Trending"
+        android:icon="@drawable/ic_tab_trending"
+        android:iconTint="@color/grey"/>
+    <item android:id="@+id/nav_item_category" android:title="Category"
+        android:icon="@drawable/ic_category_grey_24dp"/>
+    <item android:id="@+id/nav_item_gallery" android:title="Gallery"
+        android:icon="@drawable/ic_gallery_grey_24dp"/>
+    <item android:id="@+id/nav_item_liked" android:title="Liked"
+        android:icon="@drawable/ic_like_grey_24dp"/>
+    <item android:id="@+id/nav_item_setting" android:title="Settings"
+        android:icon="@drawable/ic_settings_grey_24dp"/>
+</menu>

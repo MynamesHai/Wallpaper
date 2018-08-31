@@ -1,11 +1,12 @@
 package com.androidvn.wallpaper.ui.category;
 
+import com.androidvn.wallpaper.R;
 import com.androidvn.wallpaper.ui.base.BaseFragment;
 
 public class CategoryFragment extends BaseFragment {
     @Override
     public int getLayoutId() {
-        return 0;
+        return R.layout.fragment_category;
     }
 
     @Override
