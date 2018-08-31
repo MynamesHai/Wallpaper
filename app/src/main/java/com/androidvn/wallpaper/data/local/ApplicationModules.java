@@ -9,6 +9,8 @@ import com.utility.DebugLog;
 
 import org.greenrobot.greendao.database.Database;
 
+import dagger.Module;
+
 public class ApplicationModules {
     public static ApplicationModules mInstances;
     public static final String DATABASE_NAME = "WALLPAPER_DATABASE";

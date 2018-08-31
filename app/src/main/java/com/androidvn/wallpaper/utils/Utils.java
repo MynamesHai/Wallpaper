@@ -1,5 +1,10 @@
 package com.androidvn.wallpaper.utils;
 
+import android.content.Context;
+import android.widget.ImageView;
+
+import com.androidvn.wallpaper.R;
+import com.androidvn.wallpaper.config.GlideApp;
 import com.androidvn.wallpaper.data.model.BaseResponse;
 import com.google.gson.Gson;
 
@@ -34,6 +39,19 @@ public class Utils {
         @Override
         public Type getOwnerType() {
             return null;
+        }
+    }
+
+    public static void loadImageWithGlide(Context context, Object object, ImageView imageView){
+        try {
+            GlideApp.with(context)
+                    .load(object)
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .error(R.drawable.ic_launcher_background)
+                    .into(imageView);
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 

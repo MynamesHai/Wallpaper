@@ -6,6 +6,8 @@ import android.support.multidex.MultiDex;
 
 import com.androidvn.wallpaper.data.local.ApplicationModules;
 
+import javax.inject.Inject;
+
 public class BaseApplication extends Application {
 
     public static BaseApplication instance;
@@ -29,6 +31,7 @@ public class BaseApplication extends Application {
         super.onCreate();
         instance = this;
         ApplicationModules.getInstances().initData(this);
+
     }
 
     @Override
