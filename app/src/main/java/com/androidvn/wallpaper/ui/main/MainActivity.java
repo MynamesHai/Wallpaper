@@ -1,6 +1,7 @@
 package com.androidvn.wallpaper.ui.main;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.widget.TextView;
 
 import com.androidvn.wallpaper.R;
@@ -10,6 +11,7 @@ import com.androidvn.wallpaper.ui.base.BaseActivity;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity implements MainMvp {
@@ -38,12 +40,16 @@ public class MainActivity extends BaseActivity implements MainMvp {
 
     @Override
     public void setDataForViews(List<CategoryInfo> listCategories) {
-
     }
 
 
     @OnClick(R.id.tv_test_api)
     public void onViewClicked() {
         mPresenter.doGetCategories();
+    }
+
+    @OnClick(R.id.tv_get_db)
+    public void onGetDatabase() {
+        mPresenter.getListCategory();
     }
 }

@@ -1,24 +1,26 @@
 package com.androidvn.wallpaper.data.model.category;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.ToMany;
-
 import java.util.List;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.DaoException;
 
-@Entity
+@Entity(nameInDb = "Categories")
 public class Categories {
     @Id(autoincrement = true)
     private long Id;
 
+    @Expose
     @SerializedName("stime")
     public long createdTime;
 
-    @ToMany(referencedJoinProperty = "categoryId")
+    @Expose
+    @ToMany(referencedJoinProperty = "categoriesID")
     @SerializedName("data")
     public List<CategoryInfo> listCategories;
 
@@ -127,4 +129,7 @@ public class Categories {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getCategoriesDao() : null;
     }
+
+
+
 }

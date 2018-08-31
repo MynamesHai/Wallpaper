@@ -11,7 +11,7 @@ import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.DaoException;
 import com.androidvn.wallpaper.data.model.category.DaoSession;
 
-@Entity
+@Entity(nameInDb = "Wallpapers")
 public class Wallpapers {
     @Id(autoincrement = true)
     private Long id;
@@ -128,4 +128,6 @@ public class Wallpapers {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getWallpapersDao() : null;
     }
+
+
 }

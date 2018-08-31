@@ -1,6 +1,7 @@
 package com.androidvn.wallpaper.data.model.wallpaper;
 
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import org.greenrobot.greendao.annotation.Entity;
@@ -11,7 +12,7 @@ import org.greenrobot.greendao.DaoException;
 import com.androidvn.wallpaper.data.model.category.DaoSession;
 import org.greenrobot.greendao.annotation.NotNull;
 
-@Entity
+@Entity(nameInDb = "WallpaperInfo")
 public class WallpaperInfo {
     @Id(autoincrement = true)
     private long id;
@@ -21,24 +22,31 @@ public class WallpaperInfo {
     @ToOne(joinProperty = "wallpaperInfoId")
     private Wallpapers wallpapers;
 
+    @Expose
     @SerializedName("alias_title")
     public String aliasTitle;
 
+    @Expose
     @SerializedName("title")
     public String titleWallpaper;
 
+    @Expose
     @SerializedName("author")
     public String authorWallpaper;
 
+    @Expose
     @SerializedName("download_count")
     public String downloadCount;
 
+    @Expose
     @SerializedName("thumbnail_url")
     public String thumbnailWallpaper;
 
+    @Expose
     @SerializedName("image_path")
     public String imagePathWallpaper;
 
+    @Expose
     @SerializedName("preview")
     public String previewWallpaper;
 
@@ -221,4 +229,5 @@ public class WallpaperInfo {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getWallpaperInfoDao() : null;
     }
+
 }

@@ -1,0 +1,13 @@
+ext {
+    cfgs = [
+            compileSdkVersion    : 27,
+            buildToolsVersion    : "27.1.0",
+            minSdkVersion        : 15,
+            targetSdkVersion     : 27,
+            versionCode          : 1,
+            versionName          : "1.0",
+            androidSupportVersion : "27.1.0",
+            googlePlayServiceVersion : "11.8.0",
+            gson : "2.2.4"
+    ]
+}

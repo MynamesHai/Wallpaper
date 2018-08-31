@@ -1,5 +1,6 @@
 package com.androidvn.wallpaper.data.model.category;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import org.greenrobot.greendao.annotation.Entity;
@@ -9,20 +10,26 @@ import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.annotation.NotNull;
 
-@Entity
+
+@Entity(nameInDb = "CategoryInfo")
 public class CategoryInfo {
     @Id(autoincrement = true)
     public Long id;
 
+    private long categoriesID;
+
+    @ToOne(joinProperty = "categoriesID")
+    public Categories categories;
+
+    @Expose
     @SerializedName("category_id")
     public long categoryId;
 
-    @ToOne(joinProperty = "categoryId")
-    public Categories categories;
-
+    @Expose
     @SerializedName("category_name")
     public String categoryName;
 
+    @Expose
     @SerializedName("thumbnail")
     public String categoryThumbnail;
 
@@ -34,10 +41,11 @@ public class CategoryInfo {
     @Generated(hash = 1943374341)
     private transient CategoryInfoDao myDao;
 
-    @Generated(hash = 1301219570)
-    public CategoryInfo(Long id, long categoryId, String categoryName,
-            String categoryThumbnail) {
+    @Generated(hash = 1762046266)
+    public CategoryInfo(Long id, long categoriesID, long categoryId,
+            String categoryName, String categoryThumbnail) {
         this.id = id;
+        this.categoriesID = categoriesID;
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.categoryThumbnail = categoryThumbnail;
@@ -53,6 +61,14 @@ public class CategoryInfo {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public long getCategoriesID() {
+        return this.categoriesID;
+    }
+
+    public void setCategoriesID(long categoriesID) {
+        this.categoriesID = categoriesID;
     }
 
     public long getCategoryId() {
@@ -83,9 +99,9 @@ public class CategoryInfo {
     private transient Long categories__resolvedKey;
 
     /** To-one relationship, resolved on first access. */
-    @Generated(hash = 546631204)
+    @Generated(hash = 436350759)
     public Categories getCategories() {
-        long __key = this.categoryId;
+        long __key = this.categoriesID;
         if (categories__resolvedKey == null
                 || !categories__resolvedKey.equals(__key)) {
             final DaoSession daoSession = this.daoSession;
@@ -103,16 +119,16 @@ public class CategoryInfo {
     }
 
     /** called by internal mechanisms, do not call yourself. */
-    @Generated(hash = 2047171934)
+    @Generated(hash = 987340816)
     public void setCategories(@NotNull Categories categories) {
         if (categories == null) {
             throw new DaoException(
-                    "To-one property 'categoryId' has not-null constraint; cannot set to-one to null");
+                    "To-one property 'categoriesID' has not-null constraint; cannot set to-one to null");
         }
         synchronized (this) {
             this.categories = categories;
-            categoryId = categories.getId();
-            categories__resolvedKey = categoryId;
+            categoriesID = categories.getId();
+            categories__resolvedKey = categoriesID;
         }
     }
 
@@ -158,4 +174,7 @@ public class CategoryInfo {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getCategoryInfoDao() : null;
     }
+
+
+
 }
