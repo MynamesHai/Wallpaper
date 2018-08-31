@@ -59,6 +59,12 @@ dependencies {
     implementation "com.google.android.gms:play-services-ads:${cfgs.googlePlayServiceVersion}"
     implementation "com.google.android.gms:play-services-location:${cfgs.googlePlayServiceVersion}"
 
+    // dependency injection
+    implementation "com.google.dagger:dagger:$cfgs.dagger2Version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$cfgs.dagger2Version"
+    compileOnly 'javax.annotation:jsr250-api:1.0'
+    implementation 'javax.inject:javax.inject:1'
+
     //Butter Knife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'

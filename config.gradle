@@ -8,6 +8,7 @@ ext {
             versionName          : "1.0",
             androidSupportVersion : "27.1.0",
             googlePlayServiceVersion : "11.8.0",
-            gson : "2.2.4"
+            gson : "2.2.4",
+            dagger2Version : "2.8"
     ]
 }
