@@ -24,6 +24,7 @@ public class TrendingFragment extends BaseFragment {
             R.drawable.ic_live_tv_white_24dp
     };
 
+
     @Override
     public int getLayoutId() {
         return R.layout.fragment_trending;
@@ -31,28 +32,11 @@ public class TrendingFragment extends BaseFragment {
 
     @Override
     public void onCreateView() {
-        setupViewPager(vpTrending);
-        tabTrending.setupWithViewPager(vpTrending);
+
     }
 
     @Override
     public void setActionForViews() {
 
     }
-
-    public void setupViewPager(ViewPager viewPager) {
-        trendingPagerAdapter = new TrendingPagerAdapter(mActivity.getSupportFragmentManager());
-        trendingPagerAdapter.addFragment(new NewFragment(), "New");
-        trendingPagerAdapter.addFragment(new PopularFragment(), "Popular");
-        trendingPagerAdapter.addFragment(new LiveFragment(), "Live");
-        viewPager.setAdapter(trendingPagerAdapter);
-        viewPager.setOffscreenPageLimit(3);
-    }
-
-    private void setupTabIcons() {
-        tabTrending.getTabAt(0).setIcon(tabIcons[0]);
-        tabTrending.getTabAt(1).setIcon(tabIcons[1]);
-        tabTrending.getTabAt(2).setIcon(tabIcons[2]);
-    }
-
 }

@@ -36,7 +36,28 @@ android {
     }
 }
 
-apply plugin: 'com.android.application'
+
+configurations.all() {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion cfgs.androidSupportVersion
+            }
+        }
+        if (requested.group == 'com.google.android') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion cfgs.googlePlayServiceVersion
+            }
+        }
+        if (requested.group == 'com.google.dagger') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion cfgs.dagger2Version
+            }
+        }
+    }
+}
+
 apply plugin: 'org.greenrobot.greendao'
 
 greendao {
@@ -59,6 +80,13 @@ dependencies {
     implementation "com.google.android.gms:play-services-ads:${cfgs.googlePlayServiceVersion}"
     implementation "com.google.android.gms:play-services-location:${cfgs.googlePlayServiceVersion}"
 
+    // dependency injection
+    implementation "com.google.dagger:dagger:$cfgs.dagger2Version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$cfgs.dagger2Version"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$cfgs.dagger2Version"
+    compileOnly 'javax.annotation:jsr250-api:1.0'
+    implementation 'javax.inject:javax.inject:1'
+
     //Butter Knife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
@@ -78,7 +106,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     //facebook SDK
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
-    implementation 'com.squareup.dagger:dagger:1.2.1'
     compile('com.crashlytics.sdk.android:answers:1.4.2@aar') {
         transitive = true;
     }
