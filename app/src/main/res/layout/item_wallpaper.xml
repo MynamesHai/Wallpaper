@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/grey_transparent">
+        <ImageView
+            android:id="@+id/img_item_wallpaper"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/load_100" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+            <ImageView
+                android:id="@+id/img_item_favorite_border"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/marginSmall"
+                android:layout_marginRight="@dimen/marginSmall"
+                android:src="@drawable/ic_favorite_border_white_24dp" />
+            <ImageView
+                android:id="@+id/img_item_favorite"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/marginSmall"
+                android:layout_marginRight="@dimen/marginSmall"
+                android:src="@drawable/ic_favorite_white_24dp"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_transparent"></View>
 </LinearLayout>

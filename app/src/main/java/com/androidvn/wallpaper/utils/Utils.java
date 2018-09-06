@@ -47,7 +47,7 @@ public class Utils {
             GlideApp.with(context)
                     .load(object)
                     .centerCrop()
-                    .placeholder(R.drawable.ic_launcher_background)
+                    .placeholder(R.drawable.custom_item_category)
                     .error(R.drawable.ic_launcher_background)
                     .into(imageView);
         }catch (Exception e){

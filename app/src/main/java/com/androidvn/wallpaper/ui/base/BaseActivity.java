@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.androidvn.wallpaper.di.module.ActivityComponent;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -37,6 +38,9 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseMvpV
     private Unbinder unbinder;
 
     private BaseListener mCallBack;
+
+    private ActivityComponent mActivityComponent;
+
 
     public void addListener(BaseListener mCallBack) {
         this.mCallBack = mCallBack;

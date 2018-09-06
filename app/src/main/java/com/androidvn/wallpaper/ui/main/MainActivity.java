@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
@@ -28,12 +29,6 @@ public class MainActivity extends BaseActivity implements MainMvp {
     BottomNavigationViewEx bottomNavView;
     private MainPresenter mPresenter;
     private Context mContext;
-    TrendingFragment trendingFragment;
-    CategoryFragment categoryFragment;
-    GalleryFragment galleryFragment;
-    SettingFragment settingFragment;
-    FavoriteFragment favoriteFragment;
-
 
     @Override
     public int getLayoutId() {
@@ -42,45 +37,39 @@ public class MainActivity extends BaseActivity implements MainMvp {
 
     @Override
     public void onViewCreated() {
+        Log.d("test1", "onViewCreated: ");
         mContext = this;
         mPresenter = new MainPresenter(mContext);
         mPresenter.attachView(this);
-        trendingFragment = new TrendingFragment();
-        categoryFragment = new CategoryFragment();
-        galleryFragment = new GalleryFragment();
-        settingFragment = new SettingFragment();
-        favoriteFragment = new FavoriteFragment();
         bottomNavView.enableAnimation(false);
         bottomNavView.enableShiftingMode(false);
         bottomNavView.enableItemShiftingMode(false);
-        pushFragment(false, R.id.frame_main, trendingFragment);
+        pushFragment(false, R.id.frame_main, TrendingFragment.newInstances());
     }
 
     @Override
     public void setActionForViews() {
-        //
-        bottomNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.nav_item_home:
-                        pushFragment(false, R.id.frame_main, trendingFragment);
-                        return true;
-                    case R.id.nav_item_category:
-                        pushFragment(false, R.id.frame_main, categoryFragment);
-                        return true;
-                    case R.id.nav_item_gallery:
-                        pushFragment(false, R.id.frame_main, galleryFragment);
-                        return true;
-                    case R.id.nav_item_liked:
-                        pushFragment(false, R.id.frame_main, favoriteFragment);
-                        return true;
-                    case R.id.nav_item_setting:
-                        pushFragment(false, R.id.frame_main, settingFragment);
-                        return true;
-                    default:
-                        return false;
-                }
+        bottomNavView.setOnNavigationItemSelectedListener(item -> {
+            Log.d("test", "onNavigationItemSelected: ");
+            switch (item.getItemId()) {
+                case R.id.nav_item_home:
+                    pushFragment(false, R.id.frame_main, TrendingFragment.newInstances());
+                    Log.d("test", "click trendingF: ");
+                    return true;
+                case R.id.nav_item_category:
+                    pushFragment(false, R.id.frame_main, CategoryFragment.newInstances());
+                    return true;
+                case R.id.nav_item_gallery:
+                    pushFragment(false, R.id.frame_main, GalleryFragment.newInstances());
+                    return true;
+                case R.id.nav_item_liked:
+                    pushFragment(false, R.id.frame_main, FavoriteFragment.newInstances());
+                    return true;
+                case R.id.nav_item_setting:
+                    pushFragment(false, R.id.frame_main, SettingFragment.newInstances());
+                    return true;
+                default:
+                    return false;
             }
         });
     }
@@ -89,11 +78,8 @@ public class MainActivity extends BaseActivity implements MainMvp {
     public void setDataForViews(List<CategoryInfo> listCategories) {
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
+    public BottomNavigationViewEx getNavViewBottom() {
+        return bottomNavView;
     }
 
 }

@@ -1,4 +1,4 @@
-package com.androidvn.wallpaper.ui.trending;
+package com.androidvn.wallpaper.ui.trending.adapter;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
